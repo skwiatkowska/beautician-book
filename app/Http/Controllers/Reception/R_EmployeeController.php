@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 class R_EmployeeController extends Controller {
 
     public function employees() {
-        $employees = Employee::orderBy('lname', 'asc')->get();
+        $employees = Employee::all();
         return view('reception/employees', ['employees' => $employees]);
     }
 

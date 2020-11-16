@@ -1,9 +1,16 @@
 <?php
 
+use App\Http\Controllers\Customer\C_EmployeeController;
+use App\Http\Controllers\Customer\C_RegisterController;
 use App\Http\Controllers\Reception\R_CustomerController;
 use App\Http\Controllers\Reception\R_EmployeeController;
 use App\Http\Controllers\Reception\R_RegisterController;
 
+Route::get('/' ,[C_AccountController::class, 'index']);
+Route::get('/logowanie', [A_LoginController::class, 'loginForm']);
+Route::get('/rejestracja', [C_RegisterController::class, 'registerForm']);
+Route::post('/rejestracja', [C_RegisterController::class, 'registerCustomer']);
+Route::get('/pracownicy', [C_EmployeeController::class, 'employees']);
 Route::get('/admin', [R_RegisterController::class, 'index']);
 Route::get('/admin/klienci', [R_CustomerController::class, 'customers']);
 Route::get('/admin/klient/{id}', [R_CustomerController::class, 'accountDataView']);

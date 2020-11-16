@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 class R_CustomerController extends Controller {
 
     public function customers() {
-        $customers = Customer::orderBy('lname', 'asc')->get();
+        $customers = Customer::all();
         return view('reception/customers', ['customers' => $customers]);
     }
     public function accountDataView($id) {
