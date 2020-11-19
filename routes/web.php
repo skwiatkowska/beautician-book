@@ -8,7 +8,7 @@ use App\Http\Controllers\Reception\R_EmployeeController;
 use App\Http\Controllers\Reception\R_RegisterController;
 use App\Http\Controllers\Reception\R_TreatmentController;
 
-Route::get('/' ,[C_AccountController::class, 'index']);
+Route::get('/', [C_AccountController::class, 'index']);
 Route::get('/logowanie', [A_LoginController::class, 'loginForm']);
 Route::get('/rejestracja', [C_RegisterController::class, 'registerForm']);
 Route::post('/rejestracja', [C_RegisterController::class, 'registerCustomer']);
@@ -24,3 +24,8 @@ Route::post('/admin/nowy_klient', [R_RegisterController::class, 'customerRegiste
 Route::get('/admin/nowy_pracownik', [R_RegisterController::class, 'employeeRegisterFormView']);
 Route::post('/admin/nowy_pracownik', [R_RegisterController::class, 'employeeRegister']);
 Route::get('/admin/zabiegi', [R_TreatmentController::class, 'treatments']);
+Route::get('/admin/zabiegi/nowy', [R_TreatmentController::class, 'newTreatment']);
+Route::post('/admin/zabiegi/nowy', [R_TreatmentController::class, 'storeTreatment']);
+Route::get('/admin/zabiegi/{id}/edytuj', [R_TreatmentController::class, 'editView']);
+Route::post('/admin/zabiegi/{id}/edytuj', [R_TreatmentController::class, 'update']);
+Route::post('/admin/zabiegi/{id}/usun', [R_TreatmentController::class, 'delete']);
