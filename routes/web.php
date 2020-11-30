@@ -21,6 +21,9 @@ Route::get('/admin/klient/{id}/ustawienia', [R_CustomerController::class, 'setti
 Route::post('/admin/klient/{id}/ustawienia/zmien_dane', [R_CustomerController::class, 'changeData']);
 Route::get('/admin/pracownicy', [R_EmployeeController::class, 'employees']);
 Route::get('/admin/pracownik/{id}', [R_EmployeeController::class, 'accountInfo']);
+Route::get('/admin/pracownik/{id}/ustawienia', [R_EmployeeController::class, 'settingsView']);
+Route::post('/admin/pracownik/{id}/ustawienia/zmien_dane', [R_EmployeeController::class, 'changeData']);
+Route::post('/admin/pracownik/{id}/ustawienia/usun', [R_EmployeeController::class, 'deleteAccount']);
 Route::get('/admin/nowy_klient', [R_RegisterController::class, 'customerRegisterFormView']);
 Route::post('/admin/nowy_klient', [R_RegisterController::class, 'customerRegister']);
 Route::get('/admin/nowy_pracownik', [R_RegisterController::class, 'employeeRegisterFormView']);
