@@ -36,4 +36,15 @@ class R_EmployeeController extends Controller {
         return redirect('/admin/pracownik/' . $id)->with('info', 'Dane zmienione');
     }
 
+
+    
+
+    public function deleteAccount($id) {
+        $employee = Employee::where('id', $id)->first();
+        //TODO visits & deadlines
+        $employee->delete();
+        return redirect('/admin/pracownicy')->with('info', 'Pracownik ' . $employee->fname . ' ' . $employee->lname . ' usunięty');
+    }
+}
+
 }
