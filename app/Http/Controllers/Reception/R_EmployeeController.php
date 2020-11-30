@@ -8,13 +8,32 @@ use App\Http\Controllers\Controller;
 class R_EmployeeController extends Controller {
 
     public function employees() {
-        $employees = Employee::all();
+        $employees = Employee::orderBy('lname', 'asc')->get();
         return view('reception/employees', ['employees' => $employees]);
     }
+
 
     public function accountInfo($id) {
         $employee = Employee::where('id', $id)->first();
         return view('reception/employeeProfile', ['employee' => $employee]);
+    }
+
+    
+
+    public function settingsView($id) {
+        $employee = Employee::where('id', $id)->first();
+        return view('reception/employeeSettings', ['employee' => $employee]);
+    }
+
+
+    public function changeData($id, Request $request) {
+        $employee = Employee::where('id', $id)->first();
+        $employee->fname =  $request->fname;
+        $employee->lname =  $request->lname;
+        $employee->email = $request->email;
+        $employee->mobile = $request->mobile;
+        $employee->save();
+        return redirect('/admin/pracownik/' . $id)->with('info', 'Dane zmienione');
     }
 
 }

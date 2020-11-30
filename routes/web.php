@@ -17,6 +17,8 @@ Route::get('/zabiegi', [C_TreatmentController::class, 'treatments']);
 Route::get('/admin', [R_RegisterController::class, 'index']);
 Route::get('/admin/klienci', [R_CustomerController::class, 'customers']);
 Route::get('/admin/klient/{id}', [R_CustomerController::class, 'accountDataView']);
+Route::get('/admin/klient/{id}/ustawienia', [R_CustomerController::class, 'settingsPage']);
+Route::post('/admin/klient/{id}/ustawienia/zmien_dane', [R_CustomerController::class, 'changeData']);
 Route::get('/admin/pracownicy', [R_EmployeeController::class, 'employees']);
 Route::get('/admin/pracownik/{id}', [R_EmployeeController::class, 'accountInfo']);
 Route::get('/admin/nowy_klient', [R_RegisterController::class, 'customerRegisterFormView']);
