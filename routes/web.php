@@ -21,6 +21,11 @@ Route::get('/zabiegi', [C_TreatmentController::class, 'treatments']);
 
 Route::group(['middleware' => 'customer'], function () {
     Route::get('/dane', [C_AccountController::class, 'accountInfo']);
+    Route::get('/ustawienia', [C_AccountController::class, 'settings']);
+    Route::post('/ustawienia/zmien_dane', [C_AccountController::class, 'changeData']);
+    Route::post('/ustawienia/zmien_haslo', [C_AccountController::class, 'changePassword']);
+    Route::post('/ustawienia/usun', [C_AccountController::class, 'delete']);
+
 });
 
 Route::group(['middleware' => 'admin'], function () {
@@ -29,6 +34,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/klient/{id}', [R_CustomerController::class, 'accountDataView']);
     Route::get('/admin/klient/{id}/ustawienia', [R_CustomerController::class, 'settingsPage']);
     Route::post('/admin/klient/{id}/ustawienia/zmien_dane', [R_CustomerController::class, 'changeData']);
+    Route::post('/admin/klient/{id}/ustawienia/zmien_haslo', [R_CustomerController::class, 'changePassword']);
+    Route::post('/admin/klient/{id}/ustawienia/usun', [R_CustomerController::class, 'deleteAccount']); 
+
     Route::get('/admin/pracownicy', [R_EmployeeController::class, 'employees']);
     Route::get('/admin/pracownik/{id}', [R_EmployeeController::class, 'accountInfo']);
     Route::get('/admin/pracownik/{id}/ustawienia', [R_EmployeeController::class, 'settingsView']);
