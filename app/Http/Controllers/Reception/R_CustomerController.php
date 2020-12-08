@@ -58,4 +58,11 @@ class R_CustomerController extends Controller {
     }
 
 
+
+
+    public function employeesListForACustomer() {
+        $employees = Employee::orderBy('lname', 'asc')->get();;
+        return view('reception/newCustomerVisit', ['employees' => $employees]);
+    }
+
 }
