@@ -40,7 +40,10 @@ class R_TreatmentController extends Controller {
 
     public function delete($id) {
         $treatment = Treatment::where('id', $id)->first();
-        //TODO wizyty
+        $visits = Visit::where('treat_id', $id)->get();
+        if($visits->count() > 0){
+            return redirect()->back()->withErrors('Nie można usunąć zabiegu, do którego są przypisane wizyty');
+        }
         $treatment->delete();
 
         return redirect('/admin/zabiegi')->with('info', 'Usunięto');
