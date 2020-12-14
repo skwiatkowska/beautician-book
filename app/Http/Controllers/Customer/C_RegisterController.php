@@ -14,6 +14,11 @@ class C_RegisterController extends Controller {
     }
 
     public function registerCustomer(Request $request) {
+        $isRegistered = Customer::where('email', $request->email)->first();
+        if ($isRegistered != null) {
+            return redirect('/rejestracja')->with('errors','Email zajęty');
+        }
+
         $customer = new Customer();
         $customer->fname = $request->fname;
         $customer->lname = $request->lname;

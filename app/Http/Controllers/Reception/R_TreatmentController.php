@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Reception;
 
+use App\Visit;
 use App\Treatment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
