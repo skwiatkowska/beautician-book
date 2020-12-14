@@ -20,7 +20,6 @@ class C_AccountController extends Controller {
         return view('customer/myAccount', ['data' => $customer]);
     }
 
-
     public function settings() {
         return view('customer/settings');
     }
