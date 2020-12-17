@@ -5,7 +5,13 @@
 
 
 <div class="container">
+    <div class="row">
+        <div class="box">
 
+            <div class="col-lg-6 col-lg-offset-3">
+                <div class="row">
+                    <hr>
+                    <h4 class="header-text text-center">Nowy zabieg</h4>
                     <form class="form-horizontal" method="post" action="/admin/zabiegi/nowy"
                         align="center">
                         <div class="row">
@@ -35,7 +41,10 @@
                             </fieldset>
                         </div>
                     </form>
- 
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @endsection
