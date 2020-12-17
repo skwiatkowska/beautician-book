@@ -5,7 +5,12 @@
 
 
 <div class="container">
-   
+    <div class="row">
+        <div class="box">
+
+            <div class="col-lg-6 col-lg-offset-3">
+                <div class="row">
+                    <hr>
                     <h4 class="header-text text-center">{{$treatment->name}}</h4>
                     <form class="form-horizontal" method="post" action="/admin/zabiegi/{{$treatment->id}}/edytuj"
                         align="center">
@@ -36,7 +41,10 @@
                             </fieldset>
                         </div>
                     </form>
-   
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @endsection
