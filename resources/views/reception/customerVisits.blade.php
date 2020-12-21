@@ -33,8 +33,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h2 class="panel-title text-center">
-                                            <a class="glyphicon glyphicon-menu-down" data-toggle="collapse"
-                                                href="#today"> <b>Dziś</b></a>
+                                            <a data-toggle="collapse" href="#today"> <b>Dziś</b></a>
                                         </h2>
                                     </div>
                                     <div id="today" class="panel-collapse collapse in">
@@ -64,7 +63,8 @@
                                                     {{$visit->treatment->name}}
                                                 </td>
                                                 <td>
-                                                    <form method="post" action="/admin/klient/{{$customer->id}}/usun_wizyte">
+                                                    <form method="post"
+                                                        action="/admin/klient/{{$customer->id}}/usun_wizyte">
                                                         {{ csrf_field() }}
                                                         <input type="hidden" name="id" value="{{$visit->id}}">
                                                         <input type="submit" class="btn btn-sm btn-secondary"
@@ -86,8 +86,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h2 class="panel-title text-center">
-                                            <a class="glyphicon glyphicon-menu-down" data-toggle="collapse"
-                                                href="#future">
+                                            <a data-toggle="collapse" href="#future">
                                                 <b>Nadchodzące</b></a>
                                         </h2>
                                     </div>
@@ -118,7 +117,8 @@
                                                     {{$visit->treatment->name}}
                                                 </td>
                                                 <td>
-                                                    <form method="post" action="/admin/klient/{{$customer->id}}/usun_wizyte">
+                                                    <form method="post"
+                                                        action="/admin/klient/{{$customer->id}}/usun_wizyte">
                                                         {{ csrf_field() }}
                                                         <input type="hidden" name="id" value="{{$visit->id}}">
                                                         <input type="submit" class="btn btn-sm btn-secondary"
@@ -138,8 +138,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h2 class="panel-title text-center">
-                                            <a class="glyphicon glyphicon-menu-down" data-toggle="collapse"
-                                                href="#past"> <b>Minione</b></a>
+                                            <a data-toggle="collapse" href="#past"> <b>Minione</b></a>
                                         </h2>
                                     </div>
                                     <div id="past" class="panel-collapse collapse">
