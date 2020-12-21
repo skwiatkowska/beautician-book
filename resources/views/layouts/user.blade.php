@@ -3,18 +3,21 @@
 
 <head>
     <title>@yield('title')</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
 </head>
 
 <body>
 
-    <nav class="navbar navbar-dark" role="navigation">
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-light " role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -26,25 +29,41 @@
                 </button>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav ">
+                <ul class="nav navbar-nav">
                     <li>
-                        <a href="/admin">Strona startowa</a>
+                        <a href="/">O nas</a>
+                    </li>
+
+                    <li>
+                        <a href="/pracownicy">Pracownicy</a>
                     </li>
                     <li>
-                        <a href="/admin/klienci">Klienci</a>
+                        <a href="/zabiegi">Zabiegi</a>
+                    </li>
+                    @auth
+                    <li>
+                        <a href="/terminy">Moje wizyty</a>
                     </li>
                     <li>
-                        <a href="/admin/pracownicy">Pracownicy</a>
-                    </li>
-                    <li>
-                        <a href="/admin/zabiegi">Zabiegi</a>
-                    </li>
-                    <li>
-                        <a href="/admin/terminy">Wizyty</a>
+                        <a href="/dane">Moje konto</a>
                     </li>
                     <li>
                         <a href="/wyloguj">Wyloguj</a>
                     </li>
+                    @endauth
+                    @guest
+
+
+                    <li>
+                        <a href="/rejestracja">Rejestracja</a>
+                    </li>
+                    <li>
+                        <a href="/logowanie">Logowanie</a>
+                    </li>
+
+
+                    @endguest
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -58,16 +77,26 @@
         <div class="row">
             {{--<div class="box">--}}
 
-            @if (session('errors'))
+            {{-- @if (session('errors'))
             <div class="alert alert-dismissible alert-danger">
-                Wystąpiły następujące błędy:<br />
                 <ul>
                     @foreach(session('errors') as $error)
                     <li>{!!$error!!}</li>
                     @endforeach
                 </ul>
             </div>
+            @endif --}}
+
+            @if($errors->any())
+            <div class="alert alert-danger">
+                <ul class="ul-alert">
+                    {!! implode('', $errors->all('<li>:message</li>'))
+                    !!}
+                </ul>
+            </div>
+
             @endif
+
 
 
             @if (session('info'))
@@ -79,12 +108,19 @@
                 </div>
             </div>
             @endif
-
-            {{--</div>--}}
         </div>
     </div>
 
+
+
     @yield('content')
 
+    <!-- jQuery -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
 </body>
+
 </html>
